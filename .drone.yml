@@ -6,6 +6,7 @@ steps:
   - name: Static code analysis
     image: boulundeasv/dotnet-sdk-with-java
     commands:
+      - apt-get update && apt-get install -y nodejs npm
       - dotnet sonarscanner begin /k:"easv-devops_Blogifier-Mazur_AY2aANhREVvRW2O60D8r" /d:sonar.host.url="http://sonar.setgo.dk:9000"  /d:sonar.token="sqp_20c17c07af8625666516686fdc83406b5fdf7ad7"
       - dotnet build
       - dotnet sonarscanner end /d:sonar.token="sqp_20c17c07af8625666516686fdc83406b5fdf7ad7"
